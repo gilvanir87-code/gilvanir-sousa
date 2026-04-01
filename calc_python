@@ -1,16 +1,57 @@
-# 🧮 Calculadora em Python
+import tkinter as tk
 
-Projeto de uma calculadora simples com interface gráfica, desenvolvida em Python utilizando Tkinter.
+# Função para adicionar números na tela
+def clicar(valor):
+    entrada.insert(tk.END, valor)
 
-## 💻 Funcionalidades
-- Operações básicas (+, -, *, /)
-- Interface gráfica simples
-- Limpar tela
-- Tratamento de erros
+# Função para limpar
+def limpar():
+    entrada.delete(0, tk.END)
 
-## 🚀 Objetivo
-Praticar lógica de programação e desenvolvimento de interfaces gráficas.
+# Função para calcular
+def calcular():
+    try:
+        resultado = eval(entrada.get())
+        entrada.delete(0, tk.END)
+        entrada.insert(0, str(resultado))
+    except:
+        entrada.delete(0, tk.END)
+        entrada.insert(0, "Erro")
 
-## 🛠️ Tecnologias
-- Python
-- Tkinter
+# Janela principal
+janela = tk.Tk()
+janela.title("Calculadora")
+janela.geometry("300x400")
+
+# Campo de entrada
+entrada = tk.Entry(janela, font=("Arial", 20), borderwidth=5, relief="ridge", justify="right")
+entrada.pack(fill="both", ipadx=8, ipady=15, padx=10, pady=10)
+
+# Frame dos botões
+frame = tk.Frame(janela)
+frame.pack()
+
+# Botões
+botoes = [
+    ('7', '8', '9', '/'),
+    ('4', '5', '6', '*'),
+    ('1', '2', '3', '-'),
+    ('0', 'C', '=', '+')
+]
+
+for linha in botoes:
+    linha_frame = tk.Frame(frame)
+    linha_frame.pack(expand=True, fill="both")
+    
+    for btn in linha:
+        botao = tk.Button(linha_frame, text=btn, font=("Arial", 16), height=2, width=5)
+        botao.pack(side="left", expand=True, fill="both")
+        
+        if btn == "C":
+            botao.config(command=limpar)
+        elif btn == "=":
+            botao.config(command=calcular)
+        else:
+            botao.config(command=lambda b=btn: clicar(b))
+
+janela.mainloop()
