@@ -1,0 +1,16 @@
+# 🧮 Calculadora em Python
+
+Projeto de uma calculadora simples com interface gráfica, desenvolvida em Python utilizando Tkinter.
+
+## 💻 Funcionalidades
+- Operações básicas (+, -, *, /)
+- Interface gráfica simples
+- Limpar tela
+- Tratamento de erros
+
+## 🚀 Objetivo
+Praticar lógica de programação e desenvolvimento de interfaces gráficas.
+
+## 🛠️ Tecnologias
+- Python
+- Tkinter
