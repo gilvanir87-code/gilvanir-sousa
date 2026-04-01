@@ -1,0 +1,52 @@
+import tkinter as tk
+from tkinter import messagebox
+
+# Função para adicionar tarefa
+def adicionar_tarefa():
+    tarefa = entrada.get()
+    if tarefa != "":
+        lista_tarefas.insert(tk.END, tarefa)
+        entrada.delete(0, tk.END)
+    else:
+        messagebox.showwarning("Aviso", "Digite uma tarefa!")
+
+# Função para remover tarefa
+def remover_tarefa():
+    try:
+        indice = lista_tarefas.curselection()[0]
+        lista_tarefas.delete(indice)
+    except:
+        messagebox.showwarning("Aviso", "Selecione uma tarefa!")
+
+# Função para limpar lista
+def limpar_lista():
+    lista_tarefas.delete(0, tk.END)
+
+# Janela
+janela = tk.Tk()
+janela.title("Lista de Tarefas")
+janela.geometry("350x400")
+
+# Entrada
+entrada = tk.Entry(janela, font=("Arial", 14))
+entrada.pack(pady=10, padx=10, fill="x")
+
+# Botão adicionar
+btn_add = tk.Button(janela, text="Adicionar", command=adicionar_tarefa)
+btn_add.pack(pady=5)
+
+# Lista de tarefas
+lista_tarefas = tk.Listbox(janela, font=("Arial", 12))
+lista_tarefas.pack(pady=10, padx=10, fill="both", expand=True)
+
+# Botões
+frame_botoes = tk.Frame(janela)
+frame_botoes.pack(pady=10)
+
+btn_remover = tk.Button(frame_botoes, text="Remover", command=remover_tarefa)
+btn_remover.pack(side="left", padx=5)
+
+btn_limpar = tk.Button(frame_botoes, text="Limpar Tudo", command=limpar_lista)
+btn_limpar.pack(side="left", padx=5)
+
+janela.mainloop()
