@@ -1,8 +1,11 @@
 # 👋 Olá, eu sou o Gilvanir!
 
 🎯 Em transição para a área de Tecnologia da Informação  
+
 💻 Estudante de Análise e Desenvolvimento de Sistemas - Unifatecie 
+
 💻 Estudante de Desenvolvimento Web Mobile - Escola do Futuro 
+
 🚀 Focado em Suporte Técnico e Python  
 
 ## 🛠️ Tecnologias e conhecimentos
